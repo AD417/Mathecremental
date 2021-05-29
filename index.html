@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Math game!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="load()">
+    <p>You have <span id="main-points" class="text-important">X</span> points.</p>
+    <div class="tabs">
+        <button id="tab-math" class="tab tab-math" onclick="tab(1)">Equations</button>
+        <button id="tab-add" class="tab tab-add" onclick="tab(2)" style="display:none">Addition</button>
+        <button id="tab-mult" class="tab tab-mult" onclick="tab(3)" style="display:none">Multiply</button>
+        <button id="tab-exp" class="tab tab-exp" onclick="tab(4)" style="display:none">Exponent</button>
+        <button class="tab" onclick="tab(5)">Options</button>
+        <button class="tab" onclick="tab(6)">Statistics</button>
+    </div>
+    <div id="main-math" class="tabcontent">
+        <p id="math-equation">ERROR</p>
+        Answer: <input type="text" id="math-input" value="">
+        <button onclick="submitAns()">Submit</button>
+    </div>
+    <div id="main-add" class="tabcontent">
+        <p>Pretend there's point adders here.</p>
+    </div>
+    <div id="main-mult" class="tabcontent">
+        <p>Pretend there's point multipliers here.</p>
+    </div>
+    <div id="main-exp" class="tabcontent">
+        <p>Pretend there's point exponentiators here.</p>
+    </div>
+    <div id="main-options" class="tabcontent">
+        <p>Pretend there's options here.</p>
+    </div>
+    <div id="main-stats" class="tabcontent">
+        <p>Pretend there's useful info here.</p>
+    </div>
+
+
+
+    <script src="javascripts/core/main.js"></script>
+    <script src="javascripts/core/upgrade.js"></script>
+    <script src="javascripts/equations.js"></script>
+    <script src="javascripts/addition.js"></script>
+</body>
+</html>
