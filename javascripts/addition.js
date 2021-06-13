@@ -1,6 +1,6 @@
 "use strict";
 
-function updateAddGain() {
+function updateAddPoints() {
   const gain = getAddGain(), el = getEl("prestige-add");
   if (gain >= 1 || player.resets.add !== 0) {
     el.style.visibility = "visible";
@@ -9,10 +9,11 @@ function updateAddGain() {
     el.style.visibility = "hidden";
     el.innerText = `Prestige for 0 addition points`;
   }
+  getEl("add-points").innerText = player.add.points;
 }
 
 function getAddGain() {
-  return Math.floor(Math.pow(player.quarks / 10, 0.2));
+  return Math.floor(Math.pow(player.quarks / 10, 1 / 2));
 }
 
 function resetAdd() {

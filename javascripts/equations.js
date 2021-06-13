@@ -72,6 +72,13 @@ function writeEquation() {
   getEl("math-equation").innerHTML = `${equ.problem.a} ${symbol} ${equ.problem.b} = ?`;
 }
 
+// -----------------------------
+// Submission data
+
+function trySubmitAns(event) {
+  if (event.key === "Enter") submitAns();
+}
+
 function submitAns() {
   // Aite fuck off Eslint, I dont need to mention its base 10. 
   const answer = parseInt(getEl("math-input").value, 10); 
@@ -80,6 +87,8 @@ function submitAns() {
     player.stats.solved++;
     generateEquation();
     getEl("math-input").value = "";
+    getEl("math-input").focus();
+    getEl("math-input").select();
   }
 }
 

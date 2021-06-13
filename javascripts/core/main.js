@@ -130,7 +130,7 @@ function loop(diff) { // Runs at 20TPS
   updatePoints();
   updatePointGain();
 
-  updateAddGain();
+  updateAddPoints();
   updateAddBlock();
 
   updateStatistics();

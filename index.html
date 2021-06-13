@@ -24,10 +24,11 @@
     <br>
     <div id="main-math" class="tabcontent">
         <p id="math-equation">ERROR</p>
-        Answer: <input type="text" id="math-input" value="">
+        Answer: <input type="text" id="math-input" value="" onkeypress="trySubmitAns(event)">
         <button onclick="submitAns()">Submit</button>
     </div>
     <div id="main-add" class="tabcontent">
+        <p>You have <span id="add-points" class="add-color text-big"></span> Addition Points.</p>
         <button id="boost-add" class="boost add-back add-upgrade" onclick="buyAdd()">
             <span id="boost-add-amount" class="text-big add-back add-purple">+X</span>
             <br>
