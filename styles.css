@@ -5,16 +5,61 @@
     font-family: monospace;
     outline: none;
 }
-.text-important {
-    font-size: 3rem;
+.text-big {
+    font-size: 2.5rem;
 }
-
+.text-med {
+    font-size: 2rem;
+}
 .tab {
     padding: 1rem;
-    border: solid black 1px;
+    border: solid black 4px;
     border-radius: 10%;
+    font-size: 1.5rem;
+}
+
+.boost {
+    width: 16rem;
+    height: 16rem;
+    border: solid white 8px;
+    border-radius: 10%;
+}
+
+.add-back {
+    border-color: slateblue;
+    background: lightskyblue;
+}
+.add-color {
+    color: slateblue;
+}
+
+.add-upgrade {
+    color: lightskyblue;
+}
+.add-upgrade:hover {
+    color: purple;
+}
+
+.add-purple {
+    color: purple;
+    border-color: purple;
+}
+
+.add-blue {
+    color: blue;
+    border-color: blue;
 }
 
 #math-equation {
     font-size: 3rem;
+}
+
+.option {
+    width: 10%;
+    height: 4rem;
+    border: 4px solid black;
+}
+
+.option-reset {
+    border-color: red;
 }

@@ -5,22 +5,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body onload="load()">
-    <p>You have <span id="main-points" class="text-important">X</span> points.</p>
+    <p>You have <span id="main-points" class="text-big">X</span> quarks.</p>
+    <p>You gain <span id="main-points-gain">X</span> points for every problem solved correctly.</p>
+    <div id="main-prestige">
+        <button id="prestige-add" class="tab" onclick="resetAdd()">Prestige for X addition points</button>
+        <button id="prestige-mult" class="tab" onclick="resetMult()" style="display:none">Prestige for X product points</button>
+        <button id="prestige-exp" class="tab" onclick="resetExp()" style="display:none">Prestige for X power points</button>
+    </div>
+    <br>
     <div class="tabs">
         <button id="tab-math" class="tab tab-math" onclick="tab(1)">Equations</button>
-        <button id="tab-add" class="tab tab-add" onclick="tab(2)" style="display:none">Addition</button>
-        <button id="tab-mult" class="tab tab-mult" onclick="tab(3)" style="display:none">Multiply</button>
-        <button id="tab-exp" class="tab tab-exp" onclick="tab(4)" style="display:none">Exponent</button>
+        <button id="tab-add" class="tab add-back add-color" onclick="tab(2)" style="display:none">Addition</button>
+        <button id="tab-mult" class="tab mult" onclick="tab(3)" style="display:none">Multiply</button>
+        <button id="tab-exp" class="tab exp" onclick="tab(4)" style="display:none">Exponent</button>
         <button class="tab" onclick="tab(5)">Options</button>
         <button class="tab" onclick="tab(6)">Statistics</button>
     </div>
+    <br>
     <div id="main-math" class="tabcontent">
         <p id="math-equation">ERROR</p>
         Answer: <input type="text" id="math-input" value="">
         <button onclick="submitAns()">Submit</button>
     </div>
     <div id="main-add" class="tabcontent">
-        <p>Pretend there's point adders here.</p>
+        <button id="boost-add" class="boost add-back add-upgrade" onclick="buyAdd()">
+            <span id="boost-add-amount" class="text-big add-back add-purple">+X</span>
+            <br>
+            <span id="boost-add-next" class="text-med add-back">Next: +X</span>
+            <br>
+            <span id="boost-add-cost" class="text-med add-back add-blue">Cost: XeX AP</span>
+        </button>
     </div>
     <div id="main-mult" class="tabcontent">
         <p>Pretend there's point multipliers here.</p>
@@ -29,7 +43,8 @@
         <p>Pretend there's point exponentiators here.</p>
     </div>
     <div id="main-options" class="tabcontent">
-        <p>Pretend there's options here.</p>
+        <button onclick="reset()" id="option-reset" class="option option-reset">RESET THE GAME</button>
+        <button onclick="save()" id="option-reset" class="option">Save the game</button>
     </div>
     <div id="main-stats" class="tabcontent">
         <p>Pretend there's useful info here.</p>

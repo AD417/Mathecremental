@@ -55,3 +55,11 @@ class Repeatable extends Upgrade {
     return true;
   }
 }
+
+function getPointGain() {
+  let gain = 1;
+  gain += player.quarkboosts.add;
+  gain *= player.quarkboosts.mult;
+  gain = Math.pow(gain, player.quarkboosts.exp);
+  return gain;
+}

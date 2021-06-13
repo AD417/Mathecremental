@@ -3,14 +3,20 @@
 /* eslint-disable no-inline-comments */
 "use strict";
 
-let player, equ;
+let player, equ, hovering;
 const getEl = x => document.getElementById(x);
 const basePlayer = { 
   firstTick: Date.now(),
   lastTick: Date.now(),
   version: 0.001,
 
-  points: 0,
+  quarks: 0, // You can't stop me Platonic
+
+  quarkboosts: {
+    add: 0,
+    mult: 1,
+    exp: 1,
+  },
 
   equation: {
     level: 1,
@@ -46,7 +52,6 @@ function tab(tabID) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   getEl(`main-${[null, "math", "add", "mult", "exp", "options", "stats"][tabID]}`).style.display = "block";
-  // SetUpCanvas(tabID)
 }
 
 function load() {
@@ -56,6 +61,8 @@ function load() {
     player = JSON.parse(atob(parse));
     player = check(player, basePlayer);
   } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log(e);
     newGame();
   }
   setup(); // Load in everything that is not updated on every tick. 
@@ -67,7 +74,13 @@ function load() {
 function setup() {
   equ = player.equation;
   generateEquation();
-  return true; // Will put something here later.
+  setupHoverDetection();
+  if (player.resets.add > 0) getEl("tab-add").style.display = "inline-block";
+}
+
+function setupHoverDetection() {
+  getEl("boost-add").setAttribute("onmouseover", "isHovering(true)");
+  getEl("boost-add").setAttribute("onmouseout", "isHovering(false)");
 }
 
 function check(val, base) {
@@ -115,14 +128,26 @@ function loop(diff) { // Runs at 20TPS
   }
 
   updatePoints();
-  // UpdatePrestigeGain();
+  updatePointGain();
+
+  updateAddGain();
+  updateAddBlock();
 
   updateStatistics();
 }
 
 function updatePoints() {
-  getEl("main-points").innerHTML = player.points;
+  getEl("main-points").innerHTML = player.quarks;
 }
+function updatePointGain() {
+  getEl("main-points-gain").innerHTML = getPointGain();
+}
+
+
 function updateStatistics() {
   return true;
+}
+
+function isHovering(value) {
+  hovering = value;
 }
